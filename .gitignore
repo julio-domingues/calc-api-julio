@@ -1,0 +1,9 @@
+/api
+coverage.out
+coverage.html
+.DS_Store
+.idea/
+.vscode/
+
+# Imagens exportadas localmente
+/calc-api-julio-*.tar

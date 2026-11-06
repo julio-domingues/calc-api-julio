@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: calc-api-julio
+  labels:
+    app: calc-api-julio
+spec:
+  type: ClusterIP
+  selector:
+    app: calc-api-julio
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http

@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: calc-api-julio
+  labels:
+    app: calc-api-julio
+spec:
+  selector:
+    matchLabels:
+      app: calc-api-julio
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s

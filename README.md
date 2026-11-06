@@ -2,9 +2,23 @@
 
 Calculadora em Go com interface web e uma API com as quatro operações básicas.
 
+## Como executar
+
+Escolha uma opção:
+
+- [Localmente com Go](#baixar-e-executar): para testar a calculadora na sua máquina.
+- [Com Docker](#rodar-com-docker): para executar em container, sem instalar Go.
+- [Em Kubernetes existente](docs/KUBERNETES.md): build, publicação no registro,
+  deploy, teste, atualização e remoção.
+- [Em Kubernetes local com kind](docs/KIND.md): para testar o deploy na sua máquina.
+
+Comece baixando o projeto pelos comandos abaixo. Nos guias, execute os comandos
+na pasta `calc-api-julio`.
+
 ## Baixar e executar
 
-Você precisa de Git e Go 1.24 ou superior:
+Você precisa de Git para baixar o projeto. Para executar diretamente, use Go 1.24 ou superior.
+Se preferir Docker ou Kubernetes, faça o clone, entre na pasta e siga a opção escolhida:
 
 ```sh
 git clone https://github.com/julio-domingues/calc-api-julio.git
@@ -40,7 +54,7 @@ Todos os endpoints abaixo usam GET e recebem os inteiros `term_one` e `term_two`
 | `/api/div` | Divisão |
 
 A divisão descarta a parte decimal: `5 / 2 = 2` e `-5 / 2 = -2`.
-O resultado da divisão é inteiro, com truncamento em direção a zero.
+O truncamento é em direção a zero.
 Divisão por zero retorna **400**; parâmetros ausentes ou inválidos retornam **422**.
 Os health checks ficam em `/healthz` e `/readyz`.
 

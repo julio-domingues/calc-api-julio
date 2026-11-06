@@ -1,8 +1,8 @@
 # Kubernetes existente
 
-1-Pré-requisitos: Docker com buildx, Go para os testes e kubectl configurado para o
-2-cluster. Execute na raiz do projeto.
-3- O build e a publicação são feitos por voce  no registro que achar mais adequado (ECR, Artifactory ou outro).
+Pré-requisitos: Docker com buildx, Go e kubectl configurado para o cluster.
+Execute os comandos na raiz do projeto. Use o registro de imagens da sua equipe
+(ECR, Artifactory ou outro).
 
 ## 1. Construir e publicar a imagem
 
@@ -18,7 +18,7 @@ go test ./...
 Substitua `SEU_REGISTRO` pelo endereço e caminho reais do registro.
 
 **A plataforma deve corresponder aos nós do cluster, não ao computador do build.**
-Confira a sua  arquitetura dos nós:
+Confira a arquitetura dos nós:
 
 ```sh
 kubectl get nodes -L kubernetes.io/arch
@@ -46,7 +46,7 @@ image: SEU_REGISTRO/calc-api-julio:v2
 ```
 
 Os nós precisam de acesso de leitura ao registro, pela identidade do provedor ou por
-`imagePullSecrets` em `spec.template.spec`, conforme a configuração sua configuracao
+`imagePullSecrets` em `spec.template.spec`, conforme a configuração do cluster.
 
 ```sh
 kubectl create namespace calc-api-julio
